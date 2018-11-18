@@ -1,0 +1,2 @@
+- start local zookeeper in standalone mode
+- run ZKManager to create zNode and get Node details
