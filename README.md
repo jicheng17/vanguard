@@ -1,1 +1,2 @@
 # vanguard
+module zookeeper
