@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController()
 @RequestMapping("/api")
+@CrossOrigin(origins = {"http://localhost:8081"}, maxAge = 4800, allowCredentials = "false")
 public class BackendController {
 
     private static final Logger LOG = LoggerFactory.getLogger(BackendController.class);
@@ -19,8 +20,8 @@ public class BackendController {
     @Autowired
     private UserRepository userRepository;
 
-    @RequestMapping(path = "/hello")
-    public @ResponseBody String sayHello() {
+    @RequestMapping(path = "/products")
+    public @ResponseBody String getProducts() {
         LOG.info("GET called on /hello resource");
         return HELLO_TEXT;
     }

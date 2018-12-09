@@ -34,7 +34,8 @@ export default {
     },
     methods: {
        addTicket() {
-            alert('clicked');
+
+
        }
     }
 }
