@@ -1,5 +1,6 @@
 package com.jaycee.backend.controller;
 
+import com.jaycee.backend.domain.Product;
 import com.jaycee.backend.domain.User;
 import com.jaycee.backend.repository.UserRepository;
 import org.slf4j.Logger;
@@ -7,6 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController()
 @RequestMapping("/api")
@@ -21,9 +25,16 @@ public class BackendController {
     private UserRepository userRepository;
 
     @RequestMapping(path = "/products")
-    public @ResponseBody String getProducts() {
-        LOG.info("GET called on /hello resource");
-        return HELLO_TEXT;
+    public @ResponseBody
+    List<Product> getProducts() {
+        List<Product> products = new ArrayList<>();
+        Product product = new Product();
+        product.setPk("123");
+        product.setName("book");
+        product.setSellPrice("100");
+        products.add(product);
+
+        return products;
     }
 
     @RequestMapping(path = "/user", method = RequestMethod.POST)

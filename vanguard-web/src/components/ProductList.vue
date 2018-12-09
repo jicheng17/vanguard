@@ -6,9 +6,7 @@
   <thead>
     <tr>
       <th>#</th>
-      <th>SKU</th>
       <th>Name</th>
-      <th>Quantity</th>
       <th>Price</th>
       <th>Actions</th>
     </tr>
@@ -16,9 +14,7 @@
   <tbody>
     <tr v-for="product in products" @click="selectProduct(product)">
       <th>{{product.pk}}</th>
-      <th>{{product.sku}}</th>
       <td>{{product.name}}</td>
-      <td>{{product.quantity}} {{product.unit}}</td>
       <td>{{product.sellPrice | currency}}</td>
       <td>
         <button class="btn btn-danger" @click="deleteProduct(product)"> X</button>
@@ -88,7 +84,10 @@ export default {
       this.loading = true;
       apiService.getProducts().then((page) => {
         this.products = page.data;
+
         console.log(page);
+
+        /*
         console.log(page.nextlink);
         this.numberOfProducts = page.count;
         this.numberOfPages = page.numpages;
@@ -102,6 +101,8 @@ export default {
             this.pages.push({pageNumber: i , link: link})
           }
         }
+        */
+
         this.loading = false;
       });
     },
