@@ -18,10 +18,11 @@
     </parent>
 
     <modules>
-        <module>vanguard-zookeeper</module>
+        <!--<module>vanguard-zookeeper</module>-->
         <module>vanguard-web</module>
         <module>vanguard-backend</module>
         <module>aws-sns</module>
+        <module>aws-s3</module>
     </modules>
 
 </project>
