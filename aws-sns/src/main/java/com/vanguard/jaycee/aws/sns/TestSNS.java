@@ -17,7 +17,7 @@ public class TestSNS {
                 "plQRHudqCA6fsEdUY7WlyJ1Uwqw4YFArGNGW57");
 
         SnsClient snsClient = SnsClient.builder()
-                .region(Region.US_WEST_2)
+                .region(Region.AP_SOUTHEAST_1)
                 .credentialsProvider(StaticCredentialsProvider.create(awsCreds))
                 .build();
 
