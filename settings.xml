@@ -6,19 +6,7 @@
     <localRepository>C:\jicheng\repo</localRepository>
     <pluginGroups/>
     <proxies/>
-    <servers>
-
-        <server>
-            <id>nexus-releases</id>
-            <username>admin</username>
-            <password>admin123</password>
-        </server>
-        <server>
-            <id>nexus-snapshots</id>
-            <username>admin</username>
-            <password>admin123</password>
-        </server>
-    </servers>
+    <servers/>
 
     <profiles>
         <profile>
@@ -33,37 +21,54 @@
                     <id>Central</id>
                     <name>Spring Framework Maven Milestone Repository</name>
                     <url>http://repo1.maven.org/maven2/</url>
-                    <!--<url>http://maven.dev.24money.com/nexus/content/groups/public</url>-->
                 </repository>
                 <repository>
                     <id>nexus-releases</id>
                     <url>http://nexus-releases</url>
-                    <releases><enabled>true</enabled></releases>
-                    <snapshots><enabled>true</enabled></snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
                 </repository>
                 <repository>
                     <id>nexus-snapshots</id>
                     <url>http://nexus-snapshots</url>
-                    <releases><enabled>true</enabled></releases>
-                    <snapshots><enabled>true</enabled></snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
                 </repository>
             </repositories>
+
             <pluginRepositories>
                 <pluginRepository>
                     <id>nexus-releases</id>
                     <url>http://nexus-releases</url>
-                    <releases><enabled>true</enabled></releases>
-                    <snapshots><enabled>true</enabled></snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
                 </pluginRepository>
                 <pluginRepository>
                     <id>nexus-snapshots</id>
                     <url>http://nexus-snapshots</url>
-                    <releases><enabled>true</enabled></releases>
-                    <snapshots><enabled>true</enabled></snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
                 </pluginRepository>
             </pluginRepositories>
         </profile>
     </profiles>
+
     <activeProfiles>
         <activeProfile>nexus</activeProfile>
     </activeProfiles>
