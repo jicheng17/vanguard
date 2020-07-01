@@ -1,6 +1,5 @@
 <template>
 <div>
-<h1>Products ({{numberOfProducts}})</h1>
 <Loading :loading="loading"></Loading>
 <table class="table table-bordered table-hover">
   <thead>
@@ -12,10 +11,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr v-for="product in products" @click="selectProduct(product)">
+    <tr v-for="product in this.products" @click="selectProduct(product)">
       <th>{{product.pk}}</th>
       <td>{{product.name}}</td>
-      <td>{{product.sellPrice | currency}}</td>
+      <td>{{product.sellPrice}}</td>
       <td>
         <button class="btn btn-danger" @click="deleteProduct(product)"> X</button>
         <a class="btn btn-primary" v-bind:href="'/product-update/' + product.pk"> &#9998; </a>
@@ -58,7 +57,6 @@
 /* eslint-disable */
 import {APIService} from '../APIService';
 import Loading from './Loading';
-const API_URL = 'http://localhost:8000';
 const apiService = new APIService();
 
 export default {
@@ -83,11 +81,9 @@ export default {
 
       this.loading = true;
       apiService.getProducts().then((page) => {
-        this.products = page.data;
+        this.products = page;
+        console.log(this.products);
 
-        console.log(page);
-
-        /*
         console.log(page.nextlink);
         this.numberOfProducts = page.count;
         this.numberOfPages = page.numpages;
@@ -101,7 +97,7 @@ export default {
             this.pages.push({pageNumber: i , link: link})
           }
         }
-        */
+
 
         this.loading = false;
       });

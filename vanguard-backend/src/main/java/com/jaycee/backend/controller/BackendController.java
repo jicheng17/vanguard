@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController()
 @RequestMapping("/api")
-@CrossOrigin(origins = {"http://localhost:8081"}, maxAge = 4800, allowCredentials = "false")
+@CrossOrigin(origins = {"http://localhost:8082"}, maxAge = 4800, allowCredentials = "false")
 public class BackendController {
 
     private static final Logger LOG = LoggerFactory.getLogger(BackendController.class);
