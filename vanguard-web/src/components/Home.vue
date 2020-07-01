@@ -1,17 +1,26 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>The place of battle</h2>
+    <h2>{{ msg }}</h2>
+
+    <ul>
+      <li><router-link to="/login">Login</router-link></li>
+      <li><router-link to="/productList">Product List</router-link> </li>
+    </ul>
   </div>
 </template>
 
 <script>
+import ProductList from './ProductList'
+
 export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Vanguard home'
+      msg: 'Welcome to Vanguard Home'
     }
+  },
+  components: {
+    ProductList
   }
 }
 </script>

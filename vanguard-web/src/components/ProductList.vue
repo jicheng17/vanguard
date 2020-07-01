@@ -1,5 +1,6 @@
 <template>
 <div>
+  <h2>Product List</h2>
 <Loading :loading="loading"></Loading>
 <table class="table table-bordered table-hover">
   <thead>

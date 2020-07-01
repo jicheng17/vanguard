@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import AddTicket from '@/components/AddTicket'
 import ProductList from '@/components/ProductList'
+import Login from '@/components/Login'
+
 
 Vue.use(Router)
 
@@ -14,6 +16,11 @@ export default new Router({
       component: Home
     },
     {
+      path: '/login',
+      name: 'Login',
+      component: Login
+     },
+    {
       path: '/add',
       name: 'add',
       component: AddTicket
@@ -22,6 +29,10 @@ export default new Router({
         path: '/productlist',
         name: 'ProductList',
         component: ProductList
+    },
+    {
+        path: '*',
+        redirect: '/'
     }
   ]
 })
