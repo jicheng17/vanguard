@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,6 +61,26 @@ public class BackendController {
     }
 
 
+    @RequestMapping(path = "/productId")
+    public @ResponseBody
+    List<Product> getProductById(@PathParam("id") String id) {
+
+        List<Product> result = productService.getProductById(id);
+
+        if(result == null || result.isEmpty()) {
+            List<Product> dummy = new ArrayList<>();
+            Product product = new Product();
+            product.setPk("123");
+            product.setName("dummy");
+            product.setSellPrice("100");
+            dummy.add(product);
+
+            return dummy;
+        }
+        else{
+            return result;
+        }
+    }
 
     @RequestMapping(path = "/user", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
