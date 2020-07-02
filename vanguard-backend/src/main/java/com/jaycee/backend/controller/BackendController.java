@@ -3,6 +3,8 @@ package com.jaycee.backend.controller;
 import com.jaycee.backend.domain.Product;
 import com.jaycee.backend.domain.User;
 import com.jaycee.backend.repository.UserRepository;
+import com.jaycee.backend.service.ProductService;
+import com.jaycee.backend.service.ProductServiceImp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,23 +21,45 @@ public class BackendController {
 
     private static final Logger LOG = LoggerFactory.getLogger(BackendController.class);
 
-    public static final String HELLO_TEXT = "Hello from Spring Boot Backend!";
-
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private ProductService productService;
+
     @RequestMapping(path = "/products")
     public @ResponseBody
-    List<Product> getProducts() {
-        List<Product> products = new ArrayList<>();
-        Product product = new Product();
-        product.setPk("123");
-        product.setName("book");
-        product.setSellPrice("100");
-        products.add(product);
+    List<Product> getAllProducts() {
+        List<Product> result = productService.getAllProducts();
 
-        return products;
+        if(result == null || result.isEmpty()) {
+            List<Product> dummy = new ArrayList<>();
+            Product product = new Product();
+            product.setPk("123");
+            product.setName("dummy");
+            product.setSellPrice("100");
+            dummy.add(product);
+
+            return dummy;
+        }
+        else{
+            return result;
+        }
     }
+
+    @RequestMapping(path = "/saveProduct")
+    public @ResponseBody
+    Product saveProduct() {
+        Product product = new Product();
+        product.setId("2");
+        product.setPk("abc");
+        product.setName("test product");
+        product.setSellPrice("200 dollars");
+
+        return productService.saveProduct(product);
+    }
+
+
 
     @RequestMapping(path = "/user", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)

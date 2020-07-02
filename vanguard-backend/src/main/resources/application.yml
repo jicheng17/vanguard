@@ -1,2 +1,13 @@
 server:
   port: 8081
+spring:
+    data:
+      mongodb:
+          uri: mongodb+srv://admin:xxxxxx@cluster0-pmbe9.mongodb.net/users_db?retryWrites=true&w=majority
+#        authentication-database: admin
+#        username: admin
+#        password: adminadmin
+#        database: users_db
+#        port: 27017
+#        host: cluster0-pmbe9.mongodb.net
+
